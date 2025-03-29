@@ -1,11 +1,14 @@
 from django.contrib import admin
 from django.urls import path
-from .views import ItemCreateView, ItemUpdateView, ItemListView,ItemDeleteView,ItemDetailView, CategoryCreateView, CategoryListView
+from .views import ItemCreateView, ItemUpdateView, ItemListView,ItemDeleteView,ItemDetailView, CategoryCreateView, CategoryListView, CategoryDeleteView
 
 urlpatterns = [
     # category urls
     path('category/',CategoryListView.as_view(), name= 'list_category'),
     path('category/create',CategoryCreateView.as_view(), name= 'create_category'),
+    path('category/<int:id>/delete',CategoryDeleteView.as_view(), name= 'Delete_category'),
+    
+    
     #  item endpoints
     path('item/', ItemListView.as_view(), name = 'Items' ),
     path('item/create/', ItemCreateView.as_view(), name = 'item_create'),

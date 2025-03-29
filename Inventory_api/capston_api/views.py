@@ -11,6 +11,11 @@ class CategoryCreateView(generics.CreateAPIView):
 class CategoryListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    
+class CategoryDeleteView(generics.DestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    lookup_field = 'id'
 
 # creating the create api view with the logic of perfom create method to see turn the availability to falso if the quantity is == 0
 class ItemCreateView(generics.CreateAPIView):
