@@ -7,7 +7,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class InventoryItemSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
     class Meta:
         model = Inventory_item
         fields = ['id', 'category', 'name', 'description', 'price', 'quantity', 'available', 'created_at', 'updated_at']

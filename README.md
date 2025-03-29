@@ -28,6 +28,8 @@ Brief
         - Create a Serializer file (serializers.py) which will help serialize and deserialize our model instances.In this file we shall use/import our models and use them and aslo import serializers from djangorestframework
         - Next we shall use our serialized data in the views(where we create the logic.)
         - In the views file we shall perfom login, logout and registration on the users. We shall also create CRUD opeations.
+            - in the views we shall use generic API views that handle all the logic for CRUD operations.
+            - we shall also make use of the perfom_create method provided by drf to help us handle the POST request during the creation of an item. This method automatically creates the item when a user sends in a post request.
     - Step 4:
         - Create a urls.py file in the app directory. This file will contain all endpoints for the api.
         - include the app urls in the project urls by importing include and add it to the path.
