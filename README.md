@@ -35,9 +35,15 @@ Brief
         - include the app urls in the project urls by importing include and add it to the path.
         -
     - Step 5 User Authentication
+        - Implementing user authentication will include creating serializer for our customuser to serialize our fields
+        - We also need to hash the password by overriding the create method and also hiding the password from being returned in the api response by setting the write_only field to true
         - Registration:
-            -The regisration view will help create the user instance in the database and also protect the password so that it cant be accessed in the api get request.
-            - We shall user the create methodin the serializer file to  hash and protect  the password.
+            -Here we shall use the post method to get the serialized data from the post request.
+            - We also included a permission to allow anyon who isnt registered to be able to access the view.
         -Login:
-            -
+            -  extract the username and password from the request using the get method
+            - we used the .get() because if the key is missing it wil return none instead of raisng an error
+            -  check if the user credentials are provided,
+            - if the correct credentials are goven, authenitcate the user
+            - check the provided credetial and user the log the user in
             

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import ItemCreateView, ItemUpdateView, ItemListView,ItemDeleteView,ItemDetailView, CategoryCreateView, CategoryListView, CategoryDeleteView
+from .views import ItemCreateView, ItemUpdateView, ItemListView,ItemDeleteView,ItemDetailView, CategoryCreateView, CategoryListView, CategoryDeleteView, RegisterView, LoginView
 
 urlpatterns = [
     # category urls
@@ -17,8 +17,8 @@ urlpatterns = [
     path('item/<int:id>/delete/', ItemDeleteView.as_view(), name = 'item_delete'),
     
     # user authentication urls
-    # path('register/',  RegisterAPIView.as_view, name='register'),
-    # path('login/', LoginAPIView.as_view, name='login'),
+    path('register/',  RegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
     
     
 ]
