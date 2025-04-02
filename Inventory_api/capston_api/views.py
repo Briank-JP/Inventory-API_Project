@@ -1,16 +1,32 @@
 from django.shortcuts import render
 from .models import Category, Inventory_item
-from .serializers import CategorySerializer, InventoryItemSerializer
-from rest_framework import generics
-# Create your views here.
+from .serializers import CategorySerializer, InventoryItemSerializer, CustomUserSerializer
+from rest_framework import generics, permissions, status
+# from django.contrib. auth import authenticate
+# from rest_framework.response import Response
+# from rest_framework.views import APIView
+# from rest_framework_simplejwt.tokens import RefreshToken
+
+# user authentication views
+# registration view
+
+# inventory item views
+
+
+
+
+
+
 # first we need to create categories to be associated to the items
 class CategoryCreateView(generics.CreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = [permissions.IsAuthenticated]
     
 class CategoryListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = [permissions.AllowAny]
     
 class CategoryDeleteView(generics.DestroyAPIView):
     queryset = Category.objects.all()
@@ -34,6 +50,8 @@ class ItemCreateView(generics.CreateAPIView):
 class ItemUpdateView(generics.UpdateAPIView):
     queryset = Inventory_item.objects.all()
     serializer_class = InventoryItemSerializer
+    lookup_field = 'id'
+
     
     # methode to check availability and quantity during a put/patch request
     def perform_create(self,serializer):
@@ -51,6 +69,8 @@ class ItemListView(generics.ListAPIView):
 class ItemDetailView(generics.RetrieveAPIView):
     queryset = Inventory_item.objects.all()
     serializer_class = InventoryItemSerializer
+    lookup_field = 'id'
+
     
 # delete an item
 class ItemDeleteView(generics.DestroyAPIView):

@@ -33,3 +33,11 @@ Brief
     - Step 4:
         - Create a urls.py file in the app directory. This file will contain all endpoints for the api.
         - include the app urls in the project urls by importing include and add it to the path.
+        -
+    - Step 5 User Authentication
+        - Registration:
+            -The regisration view will help create the user instance in the database and also protect the password so that it cant be accessed in the api get request.
+            - We shall user the create methodin the serializer file to  hash and protect  the password.
+        -Login:
+            -
+            

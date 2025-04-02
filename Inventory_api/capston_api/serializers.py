@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Category, Inventory_item
+from .models import Category, Inventory_item, CustomUser
+from django.contrib.auth.hashers import make_password
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,4 +20,13 @@ class InventoryItemSerializer(serializers.ModelSerializer):
             
              # Create and return a new Inventory_item instance with the provided data
             return Inventory_item.objects.create(**validated_data)
+        
+# user authentication serializer
+class CustomUserSerializer(serializers.ModelSerializer):
+    # hash the password by making it a write only filed
+    password = serializers.CharField(write_only = True)
+    
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'username', 'email', 'password']
         

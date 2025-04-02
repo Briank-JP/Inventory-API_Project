@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser
 #  create a custome user model and add roles
 class CustomUser(AbstractUser):
     pass
-
 # create inventory models
 class Category(models.Model):
     name = models.CharField(max_length=200)
