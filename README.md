@@ -47,3 +47,8 @@ Brief
             - if the correct credentials are goven, authenitcate the user
             - check the provided credetial and user the log the user in
             
+        - Authenticating a user using django simplejwt (Json Web Token)
+            -We install django jwt using pip install simple-jwt
+            - Follow the steps to create the tokens 
+            - No need to create a login view as simple-jwt already works the logic automatically
+            - simply include the url endpoints and then protected the view classes with the login permisions so that only authenticated users can access them
