@@ -83,7 +83,7 @@ class ItemListView(generics.ListAPIView):
     serializer_class = InventoryItemSerializer
     permission_classes = [permissions.AllowAny]
     
-# retrieve an single item from the database
+# retrieve a single item from the database
 class ItemDetailView(generics.RetrieveAPIView):
     queryset = Inventory_item.objects.all()
     serializer_class = InventoryItemSerializer

@@ -35,8 +35,8 @@ Brief
         - include the app urls in the project urls by importing include and add it to the path.
         -
     - Step 5 User Authentication
-        - Implementing user authentication will include creating serializer for our customuser to serialize our fields
-        - We also need to hash the password by overriding the create method and also hiding the password from being returned in the api response by setting the write_only field to true
+            - Implementing user authentication will include creating serializer for our customuser to serialize our fields
+            - We also need to hash the password by overriding the create method and also hiding the password from being returned in the api response by setting the write_only field to true
         - Registration:
             -Here we shall use the post method to get the serialized data from the post request.
             - We also included a permission to allow anyon who isnt registered to be able to access the view.
@@ -53,25 +53,25 @@ Brief
             - No need to create a login view as simple-jwt already works the logic automatically
             - simply include the url endpoints and then protected the view classes with the login permisions so that only authenticated users can access them.
 
-- Deploying
-    - Steps taken to deploy a project include:
-        1. Prepare the application; 
-            - set up your settings.py file. This is a very important file to consider during deployment
-            - Ensure the development server is running without errors.You can do this by running tests in your tests.py file and not have any failing
-            - set Debug = False
-            - Still in the settings.py file, you have to configure/ define allowed hosts
-            - collect static files
-        2. Choosing your hosting provide. For django we have;
-                -aws, digitalocean, pythonanywhere\
-        3. Setup server;
-            - isntall python, django and 
-            - put all your requirements in the requirements file using pip freeze > requirements.txt
-            - virtual environment
-            - install dependecies
-            - setup DB
-        4. upload code to the server
-            - Some use git clone
-            - some manually via ftp (file transfer protocol)
-        5. Handle static and media files
-        6. setup domain 
-        7. monitor 
+    - Step 6 Deploying
+        - Steps taken to deploy a project include:
+            1. Prepare the application; 
+                - set up your settings.py file. This is a very important file to consider during deployment
+                - Ensure the development server is running without errors.You can do this by running tests in your tests.py file and not have any failing
+                - set Debug = False
+                - Still in the settings.py file, you have to configure/ define allowed hosts
+                - collect static files
+            2. Choosing your hosting provide. For django we have;
+                    -aws, digitalocean, pythonanywhere\
+            3. Setup server;
+                - isntall python, django and 
+                - put all your requirements in the requirements file using pip freeze > requirements.txt
+                - virtual environment
+                - install dependecies
+                - setup DB
+            4. upload code to the server
+                - Some use git clone
+                - some manually via ftp (file transfer protocol)
+            5. Handle static and media files
+            6. setup domain 
+            7. monitor 

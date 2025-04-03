@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,8 +48,12 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
-# use the time delta to know when/ how long the token will take to refresh
-
+# use the time delta to set when/ how long the token will take to refresh
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),  # Change this to 1 hour (or more)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # Refresh token lasts 7 days
+    'AUTH_HEADER_TYPES': ('Bearer',),  # Ensure you use "Bearer <access_token>"
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

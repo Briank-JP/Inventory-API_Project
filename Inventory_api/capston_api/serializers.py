@@ -22,25 +22,14 @@ class InventoryItemSerializer(serializers.ModelSerializer):
         
 # user authentication serializer
 class CustomUserSerializer(serializers.ModelSerializer):
-    # hash the password by making it a write only filed
-    # password = serializers.CharField(write_only = True) # this only hides the password from the being returd to the api responses but doesnt hash the password
     
     class Meta:
         model = CustomUser
         fields = ['id', 'username', 'email', 'password']
         extra_kwargs = {
             "password": {"write_only":True}
-        }
-        
-        # password hash trial
-    # def create(self, validated_data):
-    #     password = validated_data.pop('password', None)
-    #     instance = self.Meta.Model(**validated_data)
-    #     if password is not None:
-    #         instance.set_password(password)
-    #     instance.save()
-    #     return instance
-        
+        } # this only hides the password from the being returd to the api responses but doesnt hash the password
+           
     # override the create method to hash the passsword beofr saving it 
     def create(self, validated_data):
         user = CustomUser(**validated_data)
